@@ -1,0 +1,23 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon ./src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vietkhiem/NodeJS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vietkhiem/NodeJS/issues"
+  },
+  "homepage": "https://github.com/vietkhiem/NodeJS#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

@@ -1,0 +1,16 @@
+// fake data
+const data = [
+    {id: 1, name: "Product A"}, 
+    {id: 2, name: "Product B"}
+];
+
+export const list = (req, res) => {
+    res.json(data);
+};
+export const create = (req, res) => {
+    data.push(req.body);
+    res.json(data);
+};
+export const get = (req, res) => {
+    res.json(data.find(item => item.id == req.params.id));
+};

@@ -6,7 +6,7 @@ import morgan from 'morgan';
 import mongoose from 'mongoose';
 
 import productRoute from './routes/product';
-import categoryRoute from './routes/category';
+import categoryRoute from '../route/'
 
 const app = express();
 // middleware
@@ -15,16 +15,16 @@ app.use(morgan('tiny'))
 app.use(express.json())
 
 // routes
-app.use("/api", productRoute);
-app.use("/api", categoryRoute);
+app.use("/api", productRoute)
+app
 
 //conection db
 mongoose.connect("mongodb://localhost:27017/we16310")
-    .then(() => console.log("Kết nối DB thành công !"))
+    .then(() => console.log("Ket noi DB thanh cong"))
     .catch(error => console.log(error))
 
 //conect
-const PORT = 8000;
+const PORT = 3001;
 app.listen(PORT, () => {
     console.log("Server của bạn đang chạy cổng: ", PORT);
 });

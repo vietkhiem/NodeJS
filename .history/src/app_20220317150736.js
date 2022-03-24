@@ -20,11 +20,11 @@ app.use("/api", categoryRoute);
 
 //conection db
 mongoose.connect("mongodb://localhost:27017/we16310")
-    .then(() => console.log("Kết nối DB thành công !"))
+    .then(() => console.log("Ket noi DB thanh cong"))
     .catch(error => console.log(error))
 
 //conect
-const PORT = 8000;
+const PORT = 3001;
 app.listen(PORT, () => {
     console.log("Server của bạn đang chạy cổng: ", PORT);
 });

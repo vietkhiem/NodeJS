@@ -14,7 +14,7 @@ export const create = async (req, res) => {
 }
 export const list = async (req, res) => {
     try {
-        const products = await Product.find().sort({createAt: -1});
+        const products = await Product.find({}).exec();
         res.json(products);
     } catch (error) {
         res.status(400).json({

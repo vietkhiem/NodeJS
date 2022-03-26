@@ -18,7 +18,6 @@ app.use(express.json())
 // routes
 app.use("/api", productRoute);
 app.use("/api", categoryRoute);
-app.use("/api", authRoute);
 
 //conection db
 mongoose.connect("mongodb://localhost:27017/we16310")

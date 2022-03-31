@@ -1,0 +1,7 @@
+components:
+  schema:
+    Product:
+      properties:
+        id:
+          type: integer
+        name: string

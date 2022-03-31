@@ -1,0 +1,5 @@
+components:
+  schema:
+    Product:
+      properties:
+        id:

@@ -1,0 +1,4 @@
+components:
+  schema:
+    Product:
+      properties:

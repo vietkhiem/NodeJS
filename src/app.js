@@ -1,36 +1,41 @@
-// const http = require('http');
-// const res = require('express/lib/response');
 import express from 'express';
 import cors from 'cors';
-import morgan from 'morgan';
 import mongoose from 'mongoose';
-import swaggerUI from 'swagger-ui-express';
-import YAML from 'yamljs';
-
-import productRoute from './routes/product';
-import categoryRoute from './routes/category';
-import authRoute from './routes/auth';
-
+import morgan from 'morgan';
+import productRoute from '../routes/product';
+import postRoute from '../routes/post';
+import categoryRoute from '../routes/category'
+import bannerRoute from '../routes/banner'
+import userRoute from '../routes/auth'
+import UsersRoute from '../routes/user'
 const app = express();
-const swaggerJSDocs = YAML.load('./api.yaml');
+
 // middleware
-app.use(cors())
-app.use(morgan('tiny'))
-app.use(express.json())
-app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJSDocs))
-
-// routes
+app.use(cors());
+app.use(morgan('tiny'));
+app.use(express.json());
+//route products
 app.use("/api", productRoute);
-app.use("/api", categoryRoute);
-app.use("/api", authRoute);
 
-//conection db
-mongoose.connect("mongodb://localhost:27017/we16310")
-    .then(() => console.log("Kết nối DB thành công !"))
-    .catch(error => console.log(error))
+//route post
+app.use("/api", postRoute);
+//route category
+app.use('/api', categoryRoute)
+    //user
+app.use('/api', userRoute)
+    // connect db
+app.use('/api', bannerRoute)
+    // route
 
-//conect
-const PORT = 8000;
+app.use('/api', UsersRoute)
+
+mongoose.connect('mongodb://localhost:27017/we16309')
+    // mongoose.connect('mongodb://127.0.0.1:27017/web1639')
+
+.then(() => console.log("Kết nối DB thành công"))
+    .catch((error) => console.log(error))
+    //connect
+const PORT = 3001;
 app.listen(PORT, () => {
-    console.log("Server của bạn đang chạy cổng: ", PORT);
+    console.log("Server is running port", PORT);
 });
